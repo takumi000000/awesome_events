@@ -10,13 +10,29 @@
   </head>
 
   <body>
-    <header class="navbar navbar-expand-sm navbar-light bg-light">
-      <div class="container">
-        <%= link_to "AwesomeEvents", root_path, class: "navbar-brand" %>
-      </div>
-    </header>
+  <header class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container">
-      <%= yield %>
+      <%= link_to "AwesomeEvents", root_path, class: "navbar-brand mr-auto" %>
+      <ul class="navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= button_to "ログアウト", logout_path, class: "nav-link", method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= button_to "GitHubでログイン", "/auth/github", class: "nav-link", method: :post %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  </body>
+  </header>
+  <div class="container">
+    <% if flash.notice %>
+      <div class="alert alert-success">
+        <%= flash.notice %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
 </html>

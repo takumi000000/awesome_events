@@ -29,3 +29,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem "webpacker", "~> 5.4"
+
+gem 'omniauth', '~> 2.1', '>= 2.1.2'
+gem 'omniauth-github', '~> 2.0', '>= 2.0.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
