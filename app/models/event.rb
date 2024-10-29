@@ -5,6 +5,7 @@ class Event < ApplicationRecord
     validates :start_at, presence: true
     validates :end_at, presence: true
     validate :start_at_should_be_before_end_at
+    has_many :tickets
     belongs_to :owner, class_name: "User"
 
     def created_by?(user)
